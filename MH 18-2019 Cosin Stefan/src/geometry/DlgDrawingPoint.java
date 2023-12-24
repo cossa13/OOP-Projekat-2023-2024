@@ -175,7 +175,7 @@ public class DlgDrawingPoint extends JDialog {
 						{
 							if(!flag_message)
 							{
-								JOptionPane.showMessageDialog(null, "Input can't be bigger for X(0 - 342) and for Y(0 - 199)!", "Incorrect input", JOptionPane.ERROR_MESSAGE);
+								JOptionPane.showMessageDialog(null, "Input can't be bigger for X(0 - 342) and for Y(0 - 196)!", "Incorrect input", JOptionPane.ERROR_MESSAGE);
 							}
 						}
 						else

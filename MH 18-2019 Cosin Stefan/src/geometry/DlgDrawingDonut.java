@@ -30,8 +30,8 @@ public class DlgDrawingDonut extends JDialog {
 	private JTextField textFieldIradius;
 	private int check_oradius, check_iradius;
 	private int check_x, check_y;
-	public static Color donut_color = Color.BLACK;
-	public static Color donut_fill_color = Color.WHITE;
+	public static Color donut_color = null;
+	public static Color donut_fill_color = null;
 	public static Color donut_border_color_previous = null;
 	public static Color donut_fill_color_previous = null;
 	private boolean flag_ok;

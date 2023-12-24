@@ -1,5 +1,6 @@
 package geometry;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -10,8 +11,9 @@ import javax.swing.JPanel;
 
 public class PnlDrawing extends JPanel{
 	
-	public static ArrayList<Shape> shape_list = new ArrayList<Shape>();
 	private ArrayList<Shape> selected_shapes = new ArrayList<Shape>();
+	public static ArrayList<Shape> shape_list = new ArrayList<Shape>();
+	public static Shape selected_shape;
 	public static int width, height;
 	public static int radius;
 	public static int oradius, iradius;
@@ -23,7 +25,6 @@ public class PnlDrawing extends JPanel{
 	private Point p1;
 	private Point p2;
 	private int brojac_line = 0;
-	private static Shape selected_shape;
 	
 	public PnlDrawing()
 	{
@@ -35,6 +36,7 @@ public class PnlDrawing extends JPanel{
 					if(Drawing_Application.getDraw_shape() == "Point")
 					{
 						point = new Point(e.getX(), e.getY());
+						DlgDrawingPoint.setPoint_color(Color.BLACK);
 						shape_list.add(point);
 						repaint();	
 					}
@@ -48,6 +50,7 @@ public class PnlDrawing extends JPanel{
 						{
 							p2 = new Point(e.getX(), e.getY());
 							l1 = new Line(p1, p2);
+							DlgDrawingLine.setLine_color(Color.BLACK);
 							shape_list.add(l1);
 						}
 						brojac_line++;
@@ -64,12 +67,14 @@ public class PnlDrawing extends JPanel{
 						drwr.getTextFieldY().setText(Integer.toString(e.getY()));
 						drwr.getTextFieldX().setEditable(false);
 						drwr.getTextFieldY().setEditable(false);
+						DlgDrawingRectangle.setRectangle_color(Color.BLACK);
+						DlgDrawingRectangle.setRectangle_fill_color(Color.WHITE);
 						drwr.setVisible(true);
 						if(drwr.isFlag_ok())
 						{
 							r1 = new Rectangle(new Point(e.getX(), e.getY()), width, height);
-							r1.setRectangle_color(drwr.getRectangle_color());
-							r1.setFill_color(drwr.getRectangle_fill_color());
+							r1.setRectangle_color(DlgDrawingRectangle.getRectangle_color());
+							r1.setFill_color(DlgDrawingRectangle.getRectangle_fill_color());
 							shape_list.add(r1);
 							drwr.setFlag_ok(false);
 							repaint();
@@ -82,14 +87,12 @@ public class PnlDrawing extends JPanel{
 						drcr.getTextFieldY().setText(Integer.toString(e.getY()));
 						drcr.getTextFieldX().setEditable(false);
 						drcr.getTextFieldY().setEditable(false);
+						DlgDrawingCircle.setCircle_color(Color.BLACK);
+						DlgDrawingCircle.setCircle_fill_color(Color.WHITE);
 						drcr.setVisible(true);
 						if(drcr.isFlag_ok())
 						{
 							c1 = new Circle(new Point(e.getX(), e.getY()), radius);
-							/*
-							c1.setCircle_color(drcr.getCircle_color());
-							c1.setCircle_fill_color(drcr.getCircle_fill_color());
-							*/
 							c1.setCircle_color(DlgDrawingCircle.getCircle_color());
 							c1.setCircle_fill_color(DlgDrawingCircle.getCircle_fill_color());
 							shape_list.add(c1);
@@ -104,12 +107,14 @@ public class PnlDrawing extends JPanel{
 						drdr.getTextFieldY().setText(Integer.toString(e.getY()));
 						drdr.getTextFieldX().setEditable(false);
 						drdr.getTextFieldY().setEditable(false);
+						DlgDrawingDonut.setDonut_color(Color.BLACK);
+						DlgDrawingDonut.setDonut_fill_color(Color.WHITE);
 						drdr.setVisible(true);
 						if(drdr.isFlag_ok())
 						{
 							d1 = new Donut(new Point(e.getX(), e.getY()), oradius, iradius);
-							d1.setDonut_color(drdr.getDonut_color());
-							d1.setDonut_fill_color(drdr.getDonut_fill_color());
+							d1.setDonut_color(DlgDrawingDonut.getDonut_color());
+							d1.setDonut_fill_color(DlgDrawingDonut.getDonut_fill_color());
 							shape_list.add(d1);
 							drdr.setFlag_ok(false);
 							repaint();
