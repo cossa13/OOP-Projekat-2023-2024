@@ -151,9 +151,9 @@ public class Stack_Sort extends JFrame {
 				if(dlm.size() != 0)
 				{
 					DlgStack_Sort dlgss = new DlgStack_Sort();
-					dlgss.getTextFieldX().enable(false);
-					dlgss.getTextFieldY().enable(false);
-					dlgss.getTextFieldRadius().enable(false);
+					dlgss.getTextFieldX().setEditable(false);
+					dlgss.getTextFieldY().setEditable(false);
+					dlgss.getTextFieldRadius().setEditable(false);
 					dlgss.getTextFieldX().setText(Integer.toString(dlm.get(0).getCenter().getX()));
 					dlgss.getTextFieldY().setText(Integer.toString(dlm.get(0).getCenter().getY()));
 					dlgss.getTextFieldRadius().setText(Integer.toString(dlm.get(0).getRadius()));

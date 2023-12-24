@@ -1,10 +1,12 @@
 package geometry;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Point extends Shape {
 	private int x;
 	private int y;
+	private Color pointColor = Color.BLACK;
 	
 
 	//Konstruktori
@@ -40,19 +42,23 @@ public class Point extends Shape {
 	@Override
 	public void draw(Graphics g) {
 		//Tacka ce imati izgled znaka +
+		g.setColor(pointColor);
 		g.drawLine(x - 2, y, x + 2, y); //Horizontalna linija
 		g.drawLine(x ,y - 2, x, y + 2);	 //Vertikalna linija
+		g.setColor(Color.BLACK);
 		if(this.isSelected() == true)
 		{
+			g.setColor(Color.BLUE);
 			//g.drawRect(upperLeft.getX(), upperLeft.getY(), width, height);
 			g.drawRect(this.getX() - 3,this.getY() - 3, 6, 6);
+			g.setColor(Color.BLACK);
 		}
 	}
 	
 	public double distance(Point p1)
 	{
-		int dx = x - p1.x;
-		int dy = y - p1.y;
+		int dx = this.x - p1.x;
+		int dy = this.y - p1.y;
 		return Math.sqrt(dx*dx + dy*dy);	
 	}
 	
@@ -78,7 +84,7 @@ public class Point extends Shape {
 		if(o instanceof Point)
 		{
 			Point temp = (Point) o;
-			if((temp.getX() == this.getY()) && (temp.getY() == this.getY()))
+			if((temp.getX() == this.getX()) && (temp.getY() == this.getY()))
 			{
 				return true;
 			}
@@ -87,7 +93,7 @@ public class Point extends Shape {
 	}
 	public boolean contains(int x, int y)
 	{
-		return distance(new Point(x, y)) <= 3;
+		return this.distance(new Point(x, y)) <= 3;
 	}
 	//Get i set Metode
 	
@@ -106,6 +112,12 @@ public class Point extends Shape {
 	public void setY(int y)
 	{
 		this.y = y;
+	}
+	public Color getPointColor() {
+		return pointColor;
+	}
+	public void setPointColor(Color pointColor) {
+		this.pointColor = pointColor;
 	}
 
 }

@@ -1,5 +1,6 @@
 package geometry;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Rectangle extends Shape{
@@ -7,6 +8,8 @@ public class Rectangle extends Shape{
 	private Point upperLeft;
 	private int width;
 	private int height;
+	private Color rectangle_color = Color.BLACK;
+	private Color fill_color = Color.WHITE;
 	
 	//Konstruktori
 	
@@ -37,13 +40,19 @@ public class Rectangle extends Shape{
 	
 	@Override
 	public void draw(Graphics g) {
+		g.setColor(fill_color);
+		g.fillRect(upperLeft.getX(), upperLeft.getY(), width, height);
+		g.setColor(rectangle_color);
 		g.drawRect(upperLeft.getX(), upperLeft.getY(), width, height);
+		g.setColor(Color.BLACK);
 		if(this.isSelected() == true)
 		{
+			g.setColor(Color.BLUE);
 			g.drawRect(upperLeft.getX() - 3, upperLeft.getY() - 3, 6, 6);
 			g.drawRect(upperLeft.getX() - 3 + this.getWidth(), upperLeft.getY() - 3, 6, 6);
 			g.drawRect(upperLeft.getX() - 3, upperLeft.getY() + this.getHeight() - 3, 6, 6);
 			g.drawRect(upperLeft.getX() + this.getWidth() - 3, upperLeft.getY() + this.getHeight() - 3, 6, 6);
+			g.setColor(Color.BLACK);
 		}
 	}
 	
@@ -118,6 +127,18 @@ public class Rectangle extends Shape{
 	public void setHeight(int height)
 	{
 		this.height = height;
+	}
+	public Color getRectangle_color() {
+		return rectangle_color;
+	}
+	public void setRectangle_color(Color rectangle_color) {
+		this.rectangle_color = rectangle_color;
+	}
+	public Color getFill_color() {
+		return fill_color;
+	}
+	public void setFill_color(Color fill_color) {
+		this.fill_color = fill_color;
 	}
 
 }

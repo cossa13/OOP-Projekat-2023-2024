@@ -1,12 +1,13 @@
 package geometry;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Line extends Shape{
 	
 	private Point startPoint;
 	private Point endPoint;
-	
+	private Color lineColor = Color.BLACK;
 	//Konsturktori
 	
 	public Line()
@@ -37,11 +38,15 @@ public class Line extends Shape{
 	
 	@Override
 	public void draw(Graphics g) {
+		g.setColor(lineColor);
 		g.drawLine(startPoint.getX(), startPoint.getY(), endPoint.getX(), endPoint.getY());
+		g.setColor(Color.BLACK);
 		if(this.isSelected() == true)
 		{
+			g.setColor(Color.BLUE);
 			g.drawRect(this.getStartPoint().getX() - 3,this.getStartPoint().getY() - 3, 6, 6);
 			g.drawRect(this.getEndPoint().getX() - 3,this.getEndPoint().getY() - 3, 6, 6);
+			g.setColor(Color.BLACK);
 		}
 	}
 	public double length()
@@ -81,8 +86,9 @@ public class Line extends Shape{
 	}
 	public boolean contains(int x, int y)
 	{
-		return (length() - startPoint.distance(new Point(x, y)) -
-				endPoint.distance(new Point(x, y))) <= 3;
+		//return (length() - startPoint.distance(new Point(x, y)) -
+				//endPoint.distance(new Point(x, y))) <= 3;
+		return (startPoint.distance(new Point(x, y)) + endPoint.distance(new Point(x, y))) - length() <= 2;
 	}
 	
 	//Get i set metode
@@ -102,4 +108,11 @@ public class Line extends Shape{
 	{
 		this.endPoint = endPoint;
 	}
+	public Color getLineColor() {
+		return lineColor;
+	}
+	public void setLineColor(Color lineColor) {
+		this.lineColor = lineColor;
+	}
+	
 }

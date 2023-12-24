@@ -1,11 +1,14 @@
 package geometry;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
 public class Circle extends Shape {
 	
 	protected int radius;
 	protected Point center;
+	private Color circle_color = Color.BLACK;
+	private Color circle_fill_color = Color.WHITE;
 	
 	//Konstruktori
 	
@@ -34,14 +37,20 @@ public class Circle extends Shape {
 	}
 	@Override
 	public void draw(Graphics g) {
-		g.drawOval(center.getX()-radius, center.getY()-radius, radius * 2, radius * 2);	
+		g.setColor(circle_fill_color);
+		g.fillOval(center.getX()-radius, center.getY()-radius, radius * 2, radius * 2);
+		g.setColor(circle_color);
+		g.drawOval(center.getX()-radius, center.getY()-radius, radius * 2, radius * 2);
+		g.setColor(Color.BLACK);
 		if(this.isSelected() == true)
 		{
+			g.setColor(Color.BLUE);
 			g.drawRect(this.getCenter().getX() - 3,this.getCenter().getY() - 3, 6, 6);
 			g.drawRect(this.getCenter().getX() - 3, this.getCenter().getY() - (int)(this.getRadius()) - 3, 6, 6);
 			g.drawRect(this.getCenter().getX() - 3, this.getCenter().getY() + (int)(this.getRadius()) - 3, 6, 6);
 			g.drawRect(this.getCenter().getX() - 3 - (int)(this.getRadius()), this.getCenter().getY() - 3, 6, 6);
 			g.drawRect(this.getCenter().getX() - 3 + (int)(this.getRadius()), this.getCenter().getY() - 3, 6, 6);
+			g.setColor(Color.BLACK);
 		}
 	}
 	@Override
@@ -118,4 +127,17 @@ public class Circle extends Shape {
 	{
 		this.center = center;
 	}
+	public Color getCircle_color() {
+		return circle_color;
+	}
+	public void setCircle_color(Color circle_color) {
+		this.circle_color = circle_color;
+	}
+	public Color getCircle_fill_color() {
+		return circle_fill_color;
+	}
+	public void setCircle_fill_color(Color circle_fill_color) {
+		this.circle_fill_color = circle_fill_color;
+	}
+	
 }
