@@ -40,6 +40,7 @@ public class DlgDrawingPoint extends JDialog {
 		try {
 			DlgDrawingPoint dialog = new DlgDrawingPoint();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setResizable(false);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -36,6 +36,7 @@ public class DlgStack_Sort extends JDialog {
 		try {
 			DlgStack_Sort dialog = new DlgStack_Sort();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setResizable(false);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();

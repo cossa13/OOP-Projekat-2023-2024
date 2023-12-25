@@ -36,6 +36,7 @@ public class Drawing_Application extends JFrame {
 				try {
 					Drawing_Application frame = new Drawing_Application();
 					frame.setLocationRelativeTo(null);
+					frame.setResizable(false);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

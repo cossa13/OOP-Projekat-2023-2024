@@ -34,6 +34,7 @@ public class Stack_Sort extends JFrame {
 			public void run() {
 				try {
 					Stack_Sort frame = new Stack_Sort();
+					frame.setResizable(false);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

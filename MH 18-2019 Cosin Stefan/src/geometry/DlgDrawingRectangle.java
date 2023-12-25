@@ -46,6 +46,7 @@ public class DlgDrawingRectangle extends JDialog {
 		try {
 			DlgDrawingRectangle dialog = new DlgDrawingRectangle();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setResizable(false);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();

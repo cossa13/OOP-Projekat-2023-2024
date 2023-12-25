@@ -40,6 +40,7 @@ public class DlgDrawingLine extends JDialog {
 		try {
 			DlgDrawingLine dialog = new DlgDrawingLine();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setResizable(false);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();

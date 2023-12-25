@@ -43,6 +43,7 @@ public class DlgDrawingDonut extends JDialog {
 		try {
 			DlgDrawingDonut dialog = new DlgDrawingDonut();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setResizable(false);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
