@@ -46,6 +46,7 @@ public class DlgStack_Sort extends JDialog {
 	 * Create the dialog.
 	 */
 	public DlgStack_Sort() {
+		setTitle("Circle");
 		setModal(true);
 		setBounds(100, 100, 450, 300);
 		getContentPane().setLayout(new BorderLayout());
