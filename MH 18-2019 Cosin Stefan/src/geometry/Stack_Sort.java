@@ -176,9 +176,12 @@ public class Stack_Sort extends JFrame {
 		contentPane.add(panelCenter, BorderLayout.CENTER);
 		panelCenter.setLayout(new BorderLayout(0, 0));
 		
+		JScrollPane scrollPane = new JScrollPane();
+		panelCenter.add(scrollPane, BorderLayout.CENTER);
+		
 		JList<Circle> list = new JList<Circle>();
 		list.setModel(dlm);
-		panelCenter.add(list, BorderLayout.CENTER);
+		scrollPane.setViewportView(list);
 	}
 
 }
