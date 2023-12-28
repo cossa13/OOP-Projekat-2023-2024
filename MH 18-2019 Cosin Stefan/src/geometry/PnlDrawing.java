@@ -167,35 +167,6 @@ public class PnlDrawing extends JPanel{
 		
 	}
 	
-	public void modify(int index, Shape s)
-	{
-		if(shape_list.get(index) instanceof Point)
-		{
-			shape_list.set(index, s);
-			shape_list.get(index).setSelected(false);
-		}
-		if(shape_list.get(index) instanceof Line)
-		{
-			shape_list.set(index, s);
-			shape_list.get(index).setSelected(false);
-		}
-		if(shape_list.get(index) instanceof Rectangle)
-		{
-			shape_list.set(index, s);
-			shape_list.get(index).setSelected(false);
-		}
-		if(shape_list.get(index) instanceof Circle)
-		{
-			shape_list.set(index, s);
-			shape_list.get(index).setSelected(false);
-		}
-		if(shape_list.get(index) instanceof Donut)
-		{
-			shape_list.set(index, s);
-			shape_list.get(index).setSelected(false);
-		}
-		
-	}
 	public static Shape getSelected_shape() {
 		return selected_shape;
 	}
@@ -218,9 +189,5 @@ public class PnlDrawing extends JPanel{
 	}
 	public static ArrayList<Shape> getShape_list() {
 		return shape_list;
-	}
-	public static Shape getShape_list_element(int index)
-	{
-		return shape_list.get(index);
 	}
 }

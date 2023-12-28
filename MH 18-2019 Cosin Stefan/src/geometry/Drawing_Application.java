@@ -199,7 +199,6 @@ public class Drawing_Application extends JFrame {
 				Shape selected_shape = PnlDrawing.getSelected_shape();
 				if(selected_shape != null)
 				{
-					boolean flag_instance_donut = false;
 					if(selected_shape instanceof Point)
 					{
 						Point temp = (Point) selected_shape;
@@ -219,7 +218,7 @@ public class Drawing_Application extends JFrame {
 						}
 						
 					}
-					if(selected_shape instanceof Line)
+					else if(selected_shape instanceof Line)
 					{
 						Line temp = (Line) selected_shape;
 						DlgDrawingLine drwl = new DlgDrawingLine();
@@ -241,7 +240,7 @@ public class Drawing_Application extends JFrame {
 						}
 						
 					}
-					if(selected_shape instanceof Rectangle)
+					else if(selected_shape instanceof Rectangle)
 					{
 						Rectangle temp = (Rectangle) selected_shape;
 						DlgDrawingRectangle drwr = new DlgDrawingRectangle();
@@ -264,10 +263,10 @@ public class Drawing_Application extends JFrame {
 							((Rectangle) selected_shape).setRectangle_color(temp.getRectangle_color());
 							((Rectangle) selected_shape).setFill_color(temp.getFill_color());
 							drwr.setFlag_ok(false);
-							repaint();
+							panelCenter.repaint();
 						}
 					}
-					if(selected_shape instanceof Donut)
+					else if(selected_shape instanceof Donut)
 					{
 						Donut temp = (Donut) selected_shape;
 						DlgDrawingDonut drdr = new DlgDrawingDonut();
@@ -303,11 +302,10 @@ public class Drawing_Application extends JFrame {
 							((Donut) selected_shape).setDonut_color(temp.getDonut_color());
 							((Donut) selected_shape).setDonut_fill_color(temp.getDonut_fill_color());
 							drdr.setFlag_ok(false);
-							repaint();
+							panelCenter.repaint();
 						}
-						flag_instance_donut = true;
 					}
-					if(selected_shape instanceof Circle && flag_instance_donut == false)
+					else if(selected_shape instanceof Circle)
 					{
 						Circle temp = (Circle) selected_shape;
 						DlgDrawingCircle drcr = new DlgDrawingCircle();
@@ -340,7 +338,7 @@ public class Drawing_Application extends JFrame {
 							((Circle) selected_shape).setCircle_color(temp.getCircle_color());
 							((Circle) selected_shape).setCircle_fill_color(temp.getCircle_fill_color());
 							drcr.setFlag_ok(false);
-							repaint();
+							panelCenter.repaint();
 						}
 					}
 					
